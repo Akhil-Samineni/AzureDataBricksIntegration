@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    azure:
+      active-directory:
+        audience: 2ff814a6-3304-4ab8-85cb-cd0e6f879c1d
+        enabled: true
+        profile:
+          tenant-id: da427fed-0866-4706-809a-9d39896ddf3d
+        credential:
+          client-id: 133adc1b-88e0-4b40-88ba-f77c7bf47283
+          client-secret: 7vU8Q~08CAVC.NDpgEvhhHRa44VXxkmxh6B_0dsF
+        authorization-clients:
+          azuredatabricks:
+            scopes: 2ff814a6-3304-4ab8-85cb-cd0e6f879c1d/.default
