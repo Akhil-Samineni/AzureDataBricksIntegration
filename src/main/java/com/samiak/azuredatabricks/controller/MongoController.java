@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestController("/mongo")
 public class MongoController {
     @Autowired
     PersonRepository personRepository;
 
-    @GetMapping("/mongoDbPersons")
+    @GetMapping("/persons")
     public List<Person> getPersons() {
         List<Person> people = personRepository.findAll();
         return people;

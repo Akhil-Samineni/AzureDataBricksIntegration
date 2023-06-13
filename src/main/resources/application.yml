@@ -1,16 +1,19 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://akhils2807:Amma%402807@akhilmongodbcluster.1iwfqix.mongodb.net/AkhilMongoDBDatabase?retryWrites=true&w=majority
+      host: xx
+      database: xx
+      username: xx
+      password: xx
   cloud:
     azure:
       active-directory:
         enabled: true
         profile:
-          tenant-id: da427fed-0866-4706-809a-9d39896ddf3d
+          tenant-id: xx
         credential:
-          client-id: 133adc1b-88e0-4b40-88ba-f77c7bf47283
-          client-secret: 7vU8Q~08CAVC.NDpgEvhhHRa44VXxkmxh6B_0dsF
+          client-id: xx
+          client-secret: xx
         authorization-clients:
           azuredatabricks:
-            scopes: 2ff814a6-3304-4ab8-85cb-cd0e6f879c1d/.default
+            scopes: xx
