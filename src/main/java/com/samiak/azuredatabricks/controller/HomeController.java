@@ -1,5 +1,7 @@
 package com.samiak.azuredatabricks.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -25,20 +27,22 @@ public class HomeController {
         return ResponseEntity.ok(res);
     }
 
-    @GetMapping("/graph")
+    @GetMapping("/token")
     public ResponseEntity<String> graph(
-            @RegisteredOAuth2AuthorizedClient("graph") OAuth2AuthorizedClient graphClient
+            @RegisteredOAuth2AuthorizedClient("azuredatabricks") OAuth2AuthorizedClient graphClient, HttpServletRequest request
     ) {
-        String res = "JWT Token is: " + graphClient.getAccessToken().getTokenValue();
-        return ResponseEntity.ok(res);
+        HttpSession session = request.getSession();
+        String token = graphClient.getAccessToken().getTokenValue();
+        session.setAttribute("access_token", token);
+        return ResponseEntity.ok(token);
     }
 
     @GetMapping("/azuredatabricks-data")
     public ResponseEntity<String> azuredatabricks(
-            @RegisteredOAuth2AuthorizedClient("azuredatabricks") OAuth2AuthorizedClient graphClient
+            @RegisteredOAuth2AuthorizedClient("azuredatabricks") OAuth2AuthorizedClient azureClient
     ) {
-        System.out.println(graphClient.getAccessToken());
-        String token = graphClient.getAccessToken().getTokenValue();
+        System.out.println(azureClient.getAccessToken());
+        String token = azureClient.getAccessToken().getTokenValue();
         String res = null;
         try {
             res = webClient.get()

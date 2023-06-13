@@ -1,8 +1,10 @@
 spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://akhils2807:Amma%402807@akhilmongodbcluster.1iwfqix.mongodb.net/AkhilMongoDBDatabase?retryWrites=true&w=majority
   cloud:
     azure:
       active-directory:
-        audience: 2ff814a6-3304-4ab8-85cb-cd0e6f879c1d
         enabled: true
         profile:
           tenant-id: da427fed-0866-4706-809a-9d39896ddf3d
