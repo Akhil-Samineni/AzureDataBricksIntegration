@@ -1,8 +1,19 @@
 spring:
+  logging:
+    level: DEBUG
+  graphql:
+    cors:
+      allow-credentials: true
+      allowed-origins:
+        - http://localhost:8000
+    servlet:
+      corsEnabled: true
+    graphiql:
+      enabled: true
   data:
     mongodb:
-      host: xx
-      database: xx
+      host: akhilmongodbcluster.1iwfqix.mongodb.net/
+      database: AkhilMongoDBDatabase
       username: xx
       password: xx
   cloud:
@@ -16,4 +27,10 @@ spring:
           client-secret: xx
         authorization-clients:
           azuredatabricks:
-            scopes: xx
+            scopes: 2ff814a6-3304-4ab8-85cb-cd0e6f879c1d/.default
+
+graphql:
+  servlet:
+    enabled: true
+    graphiql:
+      enabled: true
