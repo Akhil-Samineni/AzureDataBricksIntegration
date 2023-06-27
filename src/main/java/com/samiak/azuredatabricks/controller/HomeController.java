@@ -1,7 +1,10 @@
 package com.samiak.azuredatabricks.controller;
 
+import com.samiak.azuredatabricks.model.Person;
+import com.samiak.azuredatabricks.respository.PersonRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 public class HomeController {
@@ -57,5 +61,12 @@ public class HomeController {
         }
         return ResponseEntity.ok(res);
     }
+    @Autowired
+    PersonRepository personRepository;
 
+    @GetMapping("/mongo/persons")
+    public List<Person> getPersons() {
+        List<Person> people = personRepository.findAll();
+        return people;
+    }
 }

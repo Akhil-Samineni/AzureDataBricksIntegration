@@ -61,6 +61,14 @@
             <version>7.2.0</version>
         </dependency>
         <!-- end -->
+        <!-- start -->
+        <!-- https://mvnrepository.com/artifact/com.azure.spring/spring-cloud-azure-starter-keyvault-secrets -->
+        <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-starter-keyvault-secrets</artifactId>
+            <version>4.8.0</version>
+        </dependency>
+        <!-- end -->
         <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>

@@ -12,12 +12,19 @@ spring:
       enabled: true
   data:
     mongodb:
-      host: akhilmongodbcluster.1iwfqix.mongodb.net/
-      database: AkhilMongoDBDatabase
-      username: xx
-      password: xx
+      uri: mongodb+srv://${mongodb-username}:${mongodb-password}@akhilmongodbcluster.1iwfqix.mongodb.net/AkhilMongoDBDatabase
   cloud:
     azure:
+      keyvault:
+        secret:
+          property-source-enabled: true
+          property-sources[0]:
+            profile:
+              tenant-id: ${spring.cloud.azure.active-directory.profile.tenant-id}
+            credential:
+              client-id: ${spring.cloud.azure.active-directory.credential.client-id}
+              client-secret: ${spring.cloud.azure.active-directory.credential.client-secret}
+            endpoint: https://akhil-mongodb-vault.vault.azure.net/
       active-directory:
         enabled: true
         profile:
